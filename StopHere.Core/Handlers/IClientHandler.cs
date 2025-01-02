@@ -6,10 +6,10 @@ namespace StopHere.Core.Handlers;
 
 public interface IClientHandler
 {
-    Task<Response<Client?>> Create(CreateClientRequest request);
-    Task<Response<Client?>> Change(ChangeClientRequest request);
-    Task<Response<Client?>> DeleteList(DeleteClientsRequest request);
-    Task<Response<Client?>> GetByPhoneNumber(GetClientByPhoneNumberRequest request);
-    Task<PagedResponse<IList<Client?>>> GetList(GetListClientRequest request);
-    Task<Response<Client?>> RenewService(RenewServiceClientRequest request);
+    Task<Response<Client?>> CreateAsync(CreateClientRequest request);
+    Task<Response<Client?>> ChangeAsync(ChangeClientRequest request);
+    Task<Response<Client?>> DeleteListAsync(DeleteClientsRequest request);
+    Task<Response<Client?>> GetByPhoneNumberAsync(GetClientByPhoneNumberRequest request);
+    Task<PagedResponse<IList<Client?>>> GetListAsync(GetListClientRequest request);
+    Task<Response<Client?>> RenewServiceAsync(RenewServiceClientRequest request);
 }

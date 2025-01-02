@@ -9,4 +9,5 @@ public class ParkingPlace : BaseEntity
     public int Number { get; set; }
     public bool IsOccupied { get; set; }
     public Guid? ClientId { get; set; }
+    public Client? Client { get; set; }
 }

@@ -6,8 +6,8 @@ namespace StopHere.Core.Handlers;
 
 public interface IVehicleHandler
 {
-    Task<Response<Vehicle?>> Create(CreateVehicleRequest request);
-    Task<Response<Vehicle?>> Change(ChangeVehicleRequest request);
-    Task<Response<Vehicle?>> DeleteList(DeleteVehiclesRequest request);
-    Task<Response<Vehicle?>> Get(GetVehicleRequest request);
+    Task<Response<Vehicle?>> CreateAsync(CreateVehicleRequest request);
+    Task<Response<Vehicle?>> ChangeAsync(ChangeVehicleRequest request);
+    Task<Response<Vehicle?>> DeleteListAsync(DeleteVehiclesRequest request);
+    Task<Response<Vehicle?>> GetAsync(GetVehicleRequest request);
 }

@@ -6,7 +6,7 @@ namespace StopHere.Core.Handlers;
 
 public interface IParkingPlaceHandler
 {
-    Task<Response<ParkingPlace?>> Create(CreateParkingPlaceRequest request);
-    Task<Response<ParkingPlace?>> Delete(DeleteParkingPlaceRequest request);
-    Task<Response<ParkingPlace?>> Get(GetParkingPlaceRequest request);
+    Task<Response<ParkingPlace?>> CreateAsync(CreateParkingPlaceRequest request);
+    Task<Response<ParkingPlace?>> DeleteAsync(DeleteParkingPlaceRequest request);
+    Task<Response<ParkingPlace?>> GetAsync(GetParkingPlaceRequest request);
 }

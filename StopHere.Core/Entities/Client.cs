@@ -4,16 +4,16 @@ namespace StopHere.Core.Entities;
 
 public class Client : BaseEntity
 {
-    public Client(string nome, Phone phone, ClientService service, Vehicle vehicle, ParkingPlace parkingPlace)
+    public Client(string name, Phone phone, ClientService service, Vehicle vehicle, ParkingPlace parkingPlace)
     {
-        Nome = nome;
+        Name = name;
         Phone = phone;
         Service = service;
         Vehicle = vehicle;
         ParkingPlace = parkingPlace;
     }
 
-    public string Nome {  get; set; }
+    public string Name {  get; set; }
     public Phone Phone { get; set; }
     public ClientService Service { get; set; }
     public Vehicle Vehicle { get; set; }

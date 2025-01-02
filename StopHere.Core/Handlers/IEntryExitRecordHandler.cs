@@ -6,9 +6,9 @@ namespace StopHere.Core.Handlers;
 
 public interface IEntryExitRecordHandler
 {
-    Task<Response<EntryExitRecord?>> Create(CreateEntryExitRecordRequest request);
-    Task<Response<EntryExitRecord?>> ChangeExit(ChangeExitEntryExitRecordRequest request);
-    Task<Response<EntryExitRecord?>> Get(GetEntryExitRecordRequest request);
-    Task<PagedResponse<IList<EntryExitRecord?>>> GetListByPeriod(GetListEntryExitRecordRequest request);
-    Task<Response<EntryExitRecord?>> DeleteList(DeleteEntryExitRecordsRequest request);
+    Task<Response<EntryExitRecord?>> CreateAsync(CreateEntryExitRecordRequest request);
+    Task<Response<EntryExitRecord?>> ChangeExitAsync(ChangeExitEntryExitRecordRequest request);
+    Task<Response<EntryExitRecord?>> GetAsync(GetEntryExitRecordRequest request);
+    Task<PagedResponse<IList<EntryExitRecord?>>> GetListByPeriodAsync(GetListEntryExitRecordRequest request);
+    Task<Response<EntryExitRecord?>> DeleteListAsync(DeleteEntryExitRecordsRequest request);
 }

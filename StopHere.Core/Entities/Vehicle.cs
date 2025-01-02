@@ -16,4 +16,5 @@ public class Vehicle : BaseEntity
     public LicensePlate LicensePlate { get; set; }
     public IList<EntryExitRecord> EntryExitRecords { get; set; }
     public Guid? ClientId { get; set; }
+    public Client? Client { get; set; }
 }
