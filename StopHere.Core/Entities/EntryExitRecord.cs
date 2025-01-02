@@ -13,9 +13,10 @@ public class EntryExitRecord : BaseEntity
     public DateTime? ExitDate { get; set; }
     public TimeSpan? Duration { get; set; }
     public string LicensePlateValue { get; set; }
-    public Guid ParkingSpaceId {  get; set; }
     public Vehicle Vehicle { get; set; } = null!;
-
+    public Guid ParkingSpaceId {  get; set; }
+    public ParkingPlace ParkingPlace { get; set; } = null!;
+    
     public void ChangeExitDate()
     {
         ExitDate = DateTime.Now;

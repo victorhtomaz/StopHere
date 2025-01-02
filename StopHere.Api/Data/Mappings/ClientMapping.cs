@@ -30,6 +30,9 @@ public class ClientMapping : IEntityTypeConfiguration<Client>
             .HasColumnType("VARCHAR")
             .HasMaxLength(30);
 
+        builder.OwnsOne(x => x.Phone)
+            .HasIndex(x => x.Number);
+
         builder.OwnsOne(x => x.Service)
             .Property(p => p.Type)
             .IsRequired(true)
