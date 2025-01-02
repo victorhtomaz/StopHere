@@ -17,5 +17,5 @@ public class Client : BaseEntity
     public Phone Phone { get; set; }
     public ClientService Service { get; set; }
     public Vehicle Vehicle { get; set; }
-    public ParkingPlace ParkingPlace { get; set; } 
+    public ParkingPlace ParkingPlace { get; set; }
 }
