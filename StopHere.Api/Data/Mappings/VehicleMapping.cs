@@ -8,7 +8,46 @@ namespace StopHere.Api.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Vehicle> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("Vehicle");
+
+            builder.HasKey(x => x.Id);
+
+            builder.Property(p => p.Id)
+                .IsRequired(true)
+                .HasColumnName("Id")
+                .HasColumnType("uniqueidentifier");
+
+            builder.Property(p => p.Color)
+                .IsRequired(true)
+                .HasColumnName("Color")
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(50);
+
+            builder.Property(p => p.Model)
+                .IsRequired(true)
+                .HasColumnName("Model")
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(50);
+
+            builder.OwnsOne(x => x.LicensePlate)
+                .Property(p => p.Value)
+                .HasColumnName("LicensePlate_Value")
+                .HasColumnType("VARCHAR")
+                .HasMaxLength(7);
+
+            builder.HasMany(x => x.EntryExitRecords)
+                .WithOne(x => x.Vehicle)
+                .IsRequired(true);
+
+            builder.HasOne(x => x.Client)
+                .WithOne(x => x.Vehicle)
+                .IsRequired(false)
+                .HasForeignKey<Vehicle>(v => v.ClientId);
+
+            builder.Property(x => x.ClientId)
+                .IsRequired(true)
+                .HasColumnName("ClientId")
+                .HasColumnType("uniqueidentifier");
         }
     }
 }
