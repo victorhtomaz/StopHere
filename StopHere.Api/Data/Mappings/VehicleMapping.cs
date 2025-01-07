@@ -45,7 +45,7 @@ namespace StopHere.Api.Data.Mappings
                 .HasForeignKey<Vehicle>(v => v.ClientId);
 
             builder.Property(x => x.ClientId)
-                .IsRequired(true)
+                .IsRequired(false)
                 .HasColumnName("ClientId")
                 .HasColumnType("uniqueidentifier");
         }

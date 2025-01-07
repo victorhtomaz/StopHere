@@ -4,6 +4,7 @@ namespace StopHere.Core.ValueObjects;
 
 public class Phone
 {
+    protected Phone() { }
     public Phone(string number)
     {
         Number = ChangeFormat(number);

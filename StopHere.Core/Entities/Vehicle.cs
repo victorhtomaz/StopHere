@@ -4,6 +4,7 @@ namespace StopHere.Core.Entities;
 
 public class Vehicle : BaseEntity
 {
+    protected Vehicle() { }
     public Vehicle(string color, string model, LicensePlate licensePlate)
     {
         Color = color;

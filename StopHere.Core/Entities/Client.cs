@@ -4,6 +4,7 @@ namespace StopHere.Core.Entities;
 
 public class Client : BaseEntity
 {
+    protected Client() { }
     public Client(string name, Phone phone, ClientService service, Vehicle vehicle, ParkingPlace parkingPlace)
     {
         Name = name;

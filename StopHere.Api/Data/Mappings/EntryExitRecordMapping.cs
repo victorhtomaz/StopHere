@@ -8,7 +8,7 @@ public class EntryExitRecordMapping : IEntityTypeConfiguration<EntryExitRecord>
 {
     public void Configure(EntityTypeBuilder<EntryExitRecord> builder)
     {
-        builder.ToTable("EntryExitRecordMapping");
+        builder.ToTable("EntryExitRecord");
 
         builder.HasKey(x => x.Id);
 
@@ -37,6 +37,11 @@ public class EntryExitRecordMapping : IEntityTypeConfiguration<EntryExitRecord>
             .IsRequired(true)
             .HasForeignKey(e => e.LicensePlateValue)
             .HasPrincipalKey(e => e.LicensePlate.Value);
+
+        builder.Property(x => x.VehicleId)
+            .IsRequired(true)
+            .HasColumnName("VehicleId")
+            .HasColumnType("uniqueidentifier");
 
         builder.Property(p => p.LicensePlateValue)
             .IsRequired(true)

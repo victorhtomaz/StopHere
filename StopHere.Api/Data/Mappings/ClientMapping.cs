@@ -8,7 +8,7 @@ public class ClientMapping : IEntityTypeConfiguration<Client>
 {
     public void Configure(EntityTypeBuilder<Client> builder)
     {
-        builder.ToTable("Name");
+        builder.ToTable("Client");
 
         builder.HasKey(x => x.Id);
 
@@ -20,7 +20,7 @@ public class ClientMapping : IEntityTypeConfiguration<Client>
         builder.Property(p => p.Name)
             .IsRequired(true)
             .HasColumnName("Name")
-            .HasColumnType("NVACHAR")
+            .HasColumnType("NVARCHAR")
             .HasMaxLength(125);
 
         builder.OwnsOne(x => x.Phone)
@@ -31,7 +31,8 @@ public class ClientMapping : IEntityTypeConfiguration<Client>
             .HasMaxLength(30);
 
         builder.OwnsOne(x => x.Phone)
-            .HasIndex(x => x.Number);
+            .HasIndex(x => x.Number)
+            .IsUnique();
 
         builder.OwnsOne(x => x.Service)
             .Property(p => p.Type)

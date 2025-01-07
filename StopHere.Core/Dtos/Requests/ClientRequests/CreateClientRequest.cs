@@ -18,7 +18,7 @@ public class CreateClientRequest : Request
     public EServiceTypes ServiceType { get; set; }
 
     [Required]
-    [StringLength(7, MinimumLength = 7, ErrorMessage = "É necessário 7 caracteres"]
+    [StringLength(7, MinimumLength = 7, ErrorMessage = "É necessário 7 caracteres")]
     public string LicensePlateValue { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "O número da vaga é necessário")]

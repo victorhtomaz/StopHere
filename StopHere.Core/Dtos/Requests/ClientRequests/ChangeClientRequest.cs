@@ -14,6 +14,6 @@ public class ChangeClientRequest : Request
     public string PhoneNumber { get; set; } = string.Empty;
 
     [Required]
-    [StringLength(7, MinimumLength = 7, ErrorMessage = "É necessário 7 caracteres"]
+    [StringLength(7, MinimumLength = 7, ErrorMessage = "É necessário 7 caracteres")]
     public string LicensePlateValue { get; set; } = string.Empty;
 }

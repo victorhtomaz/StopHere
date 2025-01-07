@@ -4,6 +4,7 @@ namespace StopHere.Core.ValueObjects;
 
 public class ClientService
 {
+    protected ClientService() { }
     public ClientService(EServiceTypes type)
     {
         Type = type;

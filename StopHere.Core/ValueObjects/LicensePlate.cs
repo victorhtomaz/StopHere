@@ -4,6 +4,10 @@ namespace StopHere.Core.ValueObjects;
 
 public class LicensePlate
 {
+    protected LicensePlate()
+    {
+        
+    }
     public LicensePlate(string value)
     {
         Value = value;
