@@ -19,4 +19,17 @@ public class Client : BaseEntity
     public ClientService Service { get; set; }
     public Vehicle Vehicle { get; set; }
     public ParkingPlace ParkingPlace { get; set; }
+
+    public void ChangeInformation(string name, Phone phone, Vehicle vehicle)
+    {
+        Name = name;
+        Phone = phone;
+        Vehicle = vehicle;
+    }
+
+    public void Renew(ClientService service, ParkingPlace parkingPlace)
+    {
+        Service = service;
+        ParkingPlace = parkingPlace;
+    }
 }

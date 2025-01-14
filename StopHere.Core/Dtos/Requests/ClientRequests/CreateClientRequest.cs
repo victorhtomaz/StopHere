@@ -7,7 +7,7 @@ public class CreateClientRequest : Request
 {
     [Required]
     [StringLength(125, MinimumLength = 2, ErrorMessage = "É necessário 2 à 125 caracteres")]
-    public string Nome { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
 
     [Required]
     [MaxLength(30, ErrorMessage = "Máximo de 30 caracteres")]
