@@ -18,4 +18,10 @@ public class Vehicle : BaseEntity
     public IList<EntryExitRecord> EntryExitRecords { get; set; }
     public Guid? ClientId { get; set; }
     public Client? Client { get; set; }
+
+    public void ChangeInformation(string color, string model)
+    {
+        Color = color;
+        Model = model;
+    }
 }
