@@ -2,5 +2,5 @@
 
 public class ChangeExitEntryExitRecordRequest :Request
 {
-
+    public Guid Id { get; set; }
 }

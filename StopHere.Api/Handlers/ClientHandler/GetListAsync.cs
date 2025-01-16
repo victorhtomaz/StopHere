@@ -17,7 +17,7 @@ public partial class ClientHandler
             var totalCount = await query.CountAsync();
 
             var clients = await query
-                    .Skip(request.PageNumber - 1 * request.PageSize)
+                    .Skip((request.PageNumber - 1) * request.PageSize)
                     .Take(request.PageSize).ToListAsync();
 
             return new PagedResponse<IList<Client>>(clients, totalCount, request.PageNumber, request.PageSize);

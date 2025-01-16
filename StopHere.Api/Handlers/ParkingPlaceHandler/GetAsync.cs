@@ -12,7 +12,7 @@ public partial class ParkingPlaceHandler
     {
         try
         {
-            var parkingPlace = await context.ParkingPlaces.FirstOrDefaultAsync(p => p.Number == request.Number);
+            var parkingPlace = await context.ParkingPlaces.AsNoTracking().FirstOrDefaultAsync(p => p.Number == request.Number);
             if (parkingPlace is null)
                 return new Response<ParkingPlace?>(null, EStatusCode.BadRequest, "Vaga não encontrada");
 

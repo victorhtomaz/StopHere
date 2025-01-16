@@ -12,7 +12,7 @@ public partial class VehicleHandler
     {
         try
         {
-            var vehicle = await context.Vehicles
+            var vehicle = await context.Vehicles.AsNoTracking()
                     .FirstOrDefaultAsync(v => v.LicensePlate.Value == request.LicensePlateValue);
 
             if (vehicle is null)

@@ -52,11 +52,11 @@ public class EntryExitRecordMapping : IEntityTypeConfiguration<EntryExitRecord>
         builder.HasOne(x => x.ParkingPlace)
             .WithMany()
             .IsRequired(true)
-            .HasForeignKey(e => e.ParkingSpaceId);
+            .HasForeignKey(e => e.ParkingPlaceId);
 
-        builder.Property(x => x.ParkingSpaceId)
+        builder.Property(x => x.ParkingPlaceId)
             .IsRequired(true)
-            .HasColumnName("ParkingSpaceId")
+            .HasColumnName("ParkingPlaceId")
             .HasColumnType("uniqueidentifier");
     }
 }
