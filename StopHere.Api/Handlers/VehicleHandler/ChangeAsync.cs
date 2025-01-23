@@ -23,7 +23,7 @@ public partial class VehicleHandler
             context.Vehicles.Update(vehicle);
             await context.SaveChangesAsync();
 
-            return new Response<Vehicle?>();
+            return new Response<Vehicle?>(vehicle, EStatusCode.Ok, "Veiculo atualizado com sucesso");
         }
         catch (DbUpdateException)
         {
