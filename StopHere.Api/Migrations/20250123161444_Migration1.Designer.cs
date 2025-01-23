@@ -12,8 +12,8 @@ using StopHere.Api.Data;
 namespace StopHere.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250107000548_First_Migration")]
-    partial class First_Migration
+    [Migration("20250123161444_Migration1")]
+    partial class Migration1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,9 +68,9 @@ namespace StopHere.Api.Migrations
                         .HasColumnType("VARCHAR")
                         .HasColumnName("LicensePlateValue");
 
-                    b.Property<Guid>("ParkingSpaceId")
+                    b.Property<Guid>("ParkingPlaceId")
                         .HasColumnType("uniqueidentifier")
-                        .HasColumnName("ParkingSpaceId");
+                        .HasColumnName("ParkingPlaceId");
 
                     b.Property<Guid>("VehicleId")
                         .HasColumnType("uniqueidentifier")
@@ -78,7 +78,7 @@ namespace StopHere.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ParkingSpaceId");
+                    b.HasIndex("ParkingPlaceId");
 
                     b.HasIndex("VehicleId");
 
@@ -201,7 +201,7 @@ namespace StopHere.Api.Migrations
                 {
                     b.HasOne("StopHere.Core.Entities.ParkingPlace", "ParkingPlace")
                         .WithMany()
-                        .HasForeignKey("ParkingSpaceId")
+                        .HasForeignKey("ParkingPlaceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

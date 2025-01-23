@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace StopHere.Api.Migrations
 {
     /// <inheritdoc />
-    public partial class First_Migration : Migration
+    public partial class Migration1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -75,14 +75,14 @@ namespace StopHere.Api.Migrations
                     Duration = table.Column<TimeSpan>(type: "TIME", nullable: true),
                     LicensePlateValue = table.Column<string>(type: "VARCHAR(7)", maxLength: 7, nullable: false),
                     VehicleId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    ParkingSpaceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ParkingPlaceId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_EntryExitRecord", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_EntryExitRecord_ParkingPlace_ParkingSpaceId",
-                        column: x => x.ParkingSpaceId,
+                        name: "FK_EntryExitRecord_ParkingPlace_ParkingPlaceId",
+                        column: x => x.ParkingPlaceId,
                         principalTable: "ParkingPlace",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -101,9 +101,9 @@ namespace StopHere.Api.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_EntryExitRecord_ParkingSpaceId",
+                name: "IX_EntryExitRecord_ParkingPlaceId",
                 table: "EntryExitRecord",
-                column: "ParkingSpaceId");
+                column: "ParkingPlaceId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_EntryExitRecord_VehicleId",

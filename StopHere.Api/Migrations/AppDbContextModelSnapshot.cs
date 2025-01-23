@@ -65,9 +65,9 @@ namespace StopHere.Api.Migrations
                         .HasColumnType("VARCHAR")
                         .HasColumnName("LicensePlateValue");
 
-                    b.Property<Guid>("ParkingSpaceId")
+                    b.Property<Guid>("ParkingPlaceId")
                         .HasColumnType("uniqueidentifier")
-                        .HasColumnName("ParkingSpaceId");
+                        .HasColumnName("ParkingPlaceId");
 
                     b.Property<Guid>("VehicleId")
                         .HasColumnType("uniqueidentifier")
@@ -75,7 +75,7 @@ namespace StopHere.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ParkingSpaceId");
+                    b.HasIndex("ParkingPlaceId");
 
                     b.HasIndex("VehicleId");
 
@@ -198,7 +198,7 @@ namespace StopHere.Api.Migrations
                 {
                     b.HasOne("StopHere.Core.Entities.ParkingPlace", "ParkingPlace")
                         .WithMany()
-                        .HasForeignKey("ParkingSpaceId")
+                        .HasForeignKey("ParkingPlaceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -35,8 +35,7 @@ public class EntryExitRecordMapping : IEntityTypeConfiguration<EntryExitRecord>
         builder.HasOne(x => x.Vehicle)
             .WithMany(x => x.EntryExitRecords)
             .IsRequired(true)
-            .HasForeignKey(e => e.LicensePlateValue)
-            .HasPrincipalKey(e => e.LicensePlate.Value);
+            .HasForeignKey(e => e.VehicleId);
 
         builder.Property(x => x.VehicleId)
             .IsRequired(true)
