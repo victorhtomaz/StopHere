@@ -18,7 +18,7 @@ public partial class VehicleHandler
             if (!vehicles.Any() || vehicles is null)
                 return new Response<Vehicle?>(null, EStatusCode.NotFound, "Nenhum veiculo encontrado");
 
-            context.Vehicles.RemoveRange();
+            context.Vehicles.RemoveRange(vehicles);
             await context.SaveChangesAsync();
 
             return new Response<Vehicle?>(null, EStatusCode.Ok, "Veiculos deletados com sucesso");

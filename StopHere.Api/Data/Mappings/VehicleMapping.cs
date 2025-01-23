@@ -35,6 +35,10 @@ namespace StopHere.Api.Data.Mappings
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(7);
 
+            builder.OwnsOne(x => x.LicensePlate)
+                .HasIndex(p => p.Value)
+                .IsUnique();
+
             builder.HasMany(x => x.EntryExitRecords)
                 .WithOne(x => x.Vehicle)
                 .IsRequired(true);
