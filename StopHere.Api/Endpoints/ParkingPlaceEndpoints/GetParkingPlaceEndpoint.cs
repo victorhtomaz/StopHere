@@ -6,23 +6,23 @@ using StopHere.Core.Handlers;
 
 namespace StopHere.Api.Endpoints.ParkingPlaceEndpoints;
 
-public class DeleteEndpoint : IEndpoint
+public class GetParkingPlaceEndpoint : IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
-        => app.MapDelete("/", HandleAsync)
-            .WithName("ParkingPlace: Deletar uma vaga")
-            .WithSummary("Deleta uma vaga")
+        => app.MapGet("/{parkingPlaceNumber:int}", HandleAsync)
+            .WithName("ParkingPlace: Listar uma vaga")
+            .WithSummary("Lista uma vaga pelo número da vaga")
             .Produces<Response<ParkingPlace?>>();
 
     public static async Task<IResult> HandleAsync(int parkingPlaceNumber,
         IParkingPlaceHandler handler)
     {
-        var request = new DeleteParkingPlaceRequest
+        var request = new GetParkingPlaceRequest
         {
             Number = parkingPlaceNumber
         };
 
-        var result = await handler.DeleteAsync(request);
+        var result = await handler.GetAsync(request);
         return result.IsSuccess ?
             TypedResults.Ok(result) : TypedResults.BadRequest(result);
     }

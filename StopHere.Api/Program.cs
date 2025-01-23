@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using StopHere.Api.Data;
 using StopHere.Api.Endpoints;
 using StopHere.Api.Handlers.ParkingPlaceHandler;
+using StopHere.Api.Handlers.VehicleHandler;
 using StopHere.Core.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +14,7 @@ var connectionstring = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionstring, b => b.MigrationsAssembly("StopHere.Api")));
 
 builder.Services.AddScoped<IParkingPlaceHandler, ParkingPlaceHandler>();
+builder.Services.AddScoped<IVehicleHandler, VehicleHandler>();
 
 var app = builder.Build();
 

@@ -7,7 +7,7 @@ using StopHere.Core.Handlers;
 
 namespace StopHere.Api.Endpoints.ParkingPlaceEndpoints;
 
-public class CreateEndpoint : IEndpoint
+public class CreateParkingPlaceEndpoint : IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
         => app.MapPost("/", HandleAsync)

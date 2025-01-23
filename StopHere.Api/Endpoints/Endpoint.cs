@@ -1,4 +1,5 @@
 ﻿using StopHere.Api.Endpoints.ParkingPlaceEndpoints;
+using StopHere.Api.Endpoints.VehicleEndpoints;
 using StopHere.Api.Interfaces;
 
 namespace StopHere.Api.Endpoints;
@@ -15,12 +16,19 @@ public static class Endpoint
 
         endpoint.MapGroup("v1/parking_place")
             .WithTags("Parking Place")
-            .MapEndpoint<CreateEndpoint>()
-            .MapEndpoint<DeleteEndpoint>()
-            .MapEndpoint<GetEndpoint>();
+            .MapEndpoint<CreateParkingPlaceEndpoint>()
+            .MapEndpoint<DeleteParkingPlaceEndpoint>()
+            .MapEndpoint<GetParkingPlaceEndpoint>();
+
+        endpoint.MapGroup("v1/vehicle")
+            .WithTags("Vehicles")
+            .MapEndpoint<ChangeVehicleEndpoint>()
+            .MapEndpoint<CreateVehicleEndpoint>()
+            .MapEndpoint<DeleteListVehicleEndpoint>()
+            .MapEndpoint<GetVehicleEndpoint>();
     }
 
-    public static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)
+    private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)
         where TEndpoint : IEndpoint
     {
         TEndpoint.Map(app);
