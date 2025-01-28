@@ -22,6 +22,9 @@ public class ParkingPlaceMapping : IEntityTypeConfiguration<ParkingPlace>
             .HasColumnName("Number")
             .HasColumnType("INT");
 
+        builder.HasIndex(p => p.Number)
+            .IsUnique();
+
         builder.Property(p => p.IsOccupied)
             .IsRequired(true)
             .HasColumnName("IsOccupied")
@@ -29,7 +32,8 @@ public class ParkingPlaceMapping : IEntityTypeConfiguration<ParkingPlace>
 
         builder.HasOne(x => x.Client)
             .WithOne(x => x.ParkingPlace)
-            .IsRequired(false);
+            .IsRequired(false)
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.Property(x => x.ClientId)
             .IsRequired(false)

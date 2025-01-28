@@ -36,7 +36,7 @@ public class EntryExitRecordMapping : IEntityTypeConfiguration<EntryExitRecord>
             .WithMany(x => x.EntryExitRecords)
             .IsRequired(true)
             .HasForeignKey(e => e.VehicleId);
-
+            
         builder.Property(x => x.VehicleId)
             .IsRequired(true)
             .HasColumnName("VehicleId")

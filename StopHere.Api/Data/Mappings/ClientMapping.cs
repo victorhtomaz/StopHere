@@ -49,11 +49,13 @@ public class ClientMapping : IEntityTypeConfiguration<Client>
         builder.HasOne(x => x.Vehicle)
             .WithOne(x => x.Client)
             .IsRequired(true)
-            .HasForeignKey<Vehicle>(v => v.ClientId);
+            .HasForeignKey<Vehicle>(v => v.ClientId)
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasOne(x => x.ParkingPlace)
             .WithOne(x => x.Client)
             .IsRequired(true)
-            .HasForeignKey<ParkingPlace>(p => p.ClientId);
+            .HasForeignKey<ParkingPlace>(p => p.ClientId)
+            .OnDelete(DeleteBehavior.SetNull);
     }
 }

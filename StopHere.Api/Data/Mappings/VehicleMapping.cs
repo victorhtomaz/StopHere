@@ -46,7 +46,8 @@ namespace StopHere.Api.Data.Mappings
             builder.HasOne(x => x.Client)
                 .WithOne(x => x.Vehicle)
                 .IsRequired(false)
-                .HasForeignKey<Vehicle>(v => v.ClientId);
+                .HasForeignKey<Vehicle>(v => v.ClientId)
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.Property(x => x.ClientId)
                 .IsRequired(false)
