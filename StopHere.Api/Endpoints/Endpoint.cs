@@ -1,4 +1,5 @@
-﻿using StopHere.Api.Endpoints.ParkingPlaceEndpoints;
+﻿using StopHere.Api.Endpoints.ClientEndpoints;
+using StopHere.Api.Endpoints.ParkingPlaceEndpoints;
 using StopHere.Api.Endpoints.VehicleEndpoints;
 using StopHere.Api.Interfaces;
 
@@ -26,6 +27,15 @@ public static class Endpoint
             .MapEndpoint<CreateVehicleEndpoint>()
             .MapEndpoint<DeleteListVehicleEndpoint>()
             .MapEndpoint<GetVehicleEndpoint>();
+
+        endpoint.MapGroup("v1/client")
+            .WithTags("Clients")
+            .MapEndpoint<ChangeClientEndpoint>()
+            .MapEndpoint<CreateClientEndpoint>()
+            .MapEndpoint<DeleteListClientEndpoint>()
+            .MapEndpoint<GetByPhoneNumberClientEndpoint>()
+            .MapEndpoint<GetListClientEndpoint>()
+            .MapEndpoint<RenewServiceClientEndpoint>();
     }
 
     private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)

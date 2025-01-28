@@ -24,6 +24,9 @@ public partial class ClientHandler
             if (parkingPlace is null)
                 return new Response<Client?>(null, EStatusCode.NotFound, "Vaga não encontrada");
 
+            if (parkingPlace.ClientId is not null && parkingPlace.ClientId != client.Id)
+                return new Response<Client?>(null, EStatusCode.BadRequest, "A vaga já possui cliente");
+
             client.Renew(service, parkingPlace);
 
             context.Clients.Update(client);

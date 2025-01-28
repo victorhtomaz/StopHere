@@ -13,6 +13,8 @@ public partial class ClientHandler
         try
         {
             var client = await context.Clients.AsNoTracking()
+                    .Include(c => c.ParkingPlace)
+                    .Include(c => c.Vehicle)
                     .FirstOrDefaultAsync(c => c.Phone.Number.Equals(request.PhoneNumber));
             if (client is null)
                 return new Response<Client?>(null, EStatusCode.NotFound, "Cliente não encontrado");
