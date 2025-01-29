@@ -12,7 +12,7 @@ public class RenewServiceClientEndpoint : IEndpoint
     public static void Map(IEndpointRouteBuilder app)
         => app.MapPatch("/{id:guid}", HandleAsync)
             .WithName("Client: Renovar serviço")
-            .WithSummary("Renova o serviçõ de um cliente")
+            .WithSummary("Renova o serviço de um cliente")
             .Produces<Response<Client?>>();
 
     public static async Task<IResult> HandleAsync(Guid id, [FromBody] RenewServiceClientRequest request,
