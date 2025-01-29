@@ -12,7 +12,10 @@ public partial class EntryExitRecordHandler
     {
         try
         {
-            var entryExitRecord = await context.EntryExitRecords.AsNoTracking()
+            var entryExitRecord = await context.EntryExitRecords
+                .Include(e => e.ParkingPlace)
+                .Include(e => e.Vehicle)
+                .AsNoTracking()
                 .FirstOrDefaultAsync(e => e.Id == request.Id);
             if (entryExitRecord is null)
                 return new Response<EntryExitRecord?>(null, EStatusCode.NotFound, "Registro não encontrado");

@@ -1,4 +1,5 @@
 ﻿using StopHere.Api.Endpoints.ClientEndpoints;
+using StopHere.Api.Endpoints.EntryExitRecordEndpoints;
 using StopHere.Api.Endpoints.ParkingPlaceEndpoints;
 using StopHere.Api.Endpoints.VehicleEndpoints;
 using StopHere.Api.Interfaces;
@@ -36,6 +37,14 @@ public static class Endpoint
             .MapEndpoint<GetByPhoneNumberClientEndpoint>()
             .MapEndpoint<GetListClientEndpoint>()
             .MapEndpoint<RenewServiceClientEndpoint>();
+
+        endpoint.MapGroup("v1/entry_exit_record")
+            .WithTags("Entry Exit Records")
+            .MapEndpoint<ChangeEntryExitRecordEndpoint>()
+            .MapEndpoint<CreateEntryExitRecordEndpoint>()
+            .MapEndpoint<DeleteListEntryExitRecordEndpoint>()
+            .MapEndpoint<GetEntryExitRecordEndpoint>()
+            .MapEndpoint<GetListByPeriodEntryExitRecordEndpoint>();
     }
 
     private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)

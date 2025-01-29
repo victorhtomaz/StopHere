@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using StopHere.Api.Data;
 using StopHere.Api.Endpoints;
 using StopHere.Api.Handlers.ClientHandler;
+using StopHere.Api.Handlers.EntryExitRecordHandler;
 using StopHere.Api.Handlers.ParkingPlaceHandler;
 using StopHere.Api.Handlers.VehicleHandler;
 using StopHere.Core.Handlers;
@@ -18,6 +19,7 @@ var connectionstring = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionstring, b => b.MigrationsAssembly("StopHere.Api")));
 
 builder.Services.AddScoped<IClientHandler, ClientHandler>();
+builder.Services.AddScoped<IEntryExitRecordHandler, EntryExitRecordHandler>();
 builder.Services.AddScoped<IParkingPlaceHandler, ParkingPlaceHandler>();
 builder.Services.AddScoped<IVehicleHandler, VehicleHandler>();
 

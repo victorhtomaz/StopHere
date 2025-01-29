@@ -12,11 +12,14 @@ public partial class EntryExitRecordHandler
     {
         try
         {
-            var entryExitRecord = await context.EntryExitRecords.FirstOrDefaultAsync(e => e.Id == request.Id);
+            var entryExitRecord = await context.EntryExitRecords
+                .Include(e => e.ParkingPlace)
+                .FirstOrDefaultAsync(e => e.Id == request.Id);
             if (entryExitRecord is null)
                 return new Response<EntryExitRecord?>(null, EStatusCode.NotFound, "Registro não encontrado");
 
             entryExitRecord.ChangeExitDate();
+            entryExitRecord.ParkingPlace.IsOccupied = false;
 
             context.EntryExitRecords.Update(entryExitRecord);
             await context.SaveChangesAsync();

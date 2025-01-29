@@ -16,10 +16,15 @@ public partial class EntryExitRecordHandler
             if (parkingPlace is null)
                 return new Response<EntryExitRecord?>(null, EStatusCode.NotFound, "Vaga não encontrada");
 
+            if (parkingPlace.IsOccupied)
+                return new Response<EntryExitRecord?>(null, EStatusCode.BadRequest, "Vaga já está ocupada");
+
             var vehicle = await context.Vehicles
                 .FirstOrDefaultAsync(v => v.LicensePlate.Value.Equals(request.LicensePlateValue));
             if (vehicle is null)
                 return new Response<EntryExitRecord?>(null, EStatusCode.NotFound, "Veiculo não encontrado");
+
+            parkingPlace.IsOccupied = true;
 
             var entryExitRecord = new EntryExitRecord(vehicle, parkingPlace);
 
