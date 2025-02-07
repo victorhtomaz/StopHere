@@ -13,6 +13,7 @@ public class DeleteListEntryExitRecordEndpoint : IEndpoint
         => app.MapDelete("/", HandleAsync)
             .WithName("EntryExitRecord: Deletar lista")
             .WithSummary("Deleta uma lista de registros")
+            .RequireAuthorization("admin")
             .Produces<Response<EntryExitRecord?>>();
 
     public static async Task<IResult> HandleAsync([FromBody] DeleteEntryExitRecordsRequest request,

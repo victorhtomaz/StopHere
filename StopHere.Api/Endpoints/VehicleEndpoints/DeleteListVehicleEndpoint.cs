@@ -13,6 +13,7 @@ public class DeleteListVehicleEndpoint : IEndpoint
         => app.MapDelete("/list", HandleAsync)
             .WithName("Vehicle: Deletar lista")
             .WithSummary("Deleta uma lista de veiculos")
+            .RequireAuthorization("admin")
             .Produces<Response<Vehicle?>>();
 
     public static async Task<IResult> HandleAsync([FromBody] DeleteVehiclesRequest request,

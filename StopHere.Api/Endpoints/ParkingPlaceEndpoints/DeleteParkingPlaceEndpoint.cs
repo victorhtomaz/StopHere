@@ -12,6 +12,7 @@ public class DeleteParkingPlaceEndpoint : IEndpoint
         => app.MapDelete("/", HandleAsync)
             .WithName("ParkingPlace: Deletar uma vaga")
             .WithSummary("Deleta uma vaga")
+            .RequireAuthorization("admin")
             .Produces<Response<ParkingPlace?>>();
 
     public static async Task<IResult> HandleAsync(int parkingPlaceNumber,

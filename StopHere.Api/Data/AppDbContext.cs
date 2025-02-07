@@ -1,10 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using StopHere.Api.Entities;
 using StopHere.Core.Entities;
 using System.Reflection;
 
 namespace StopHere.Api.Data;
 
-public class AppDbContext : DbContext
+public class AppDbContext : 
+    IdentityDbContext<User, IdentityRole<Guid>, Guid, IdentityUserClaim<Guid>,
+            IdentityUserRole<Guid>, IdentityUserLogin<Guid>, IdentityRoleClaim<Guid>, IdentityUserToken<Guid>>
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
