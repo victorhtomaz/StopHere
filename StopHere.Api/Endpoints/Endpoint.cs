@@ -22,7 +22,8 @@ public static class Endpoint
             .RequireAuthorization("funcionario")
             .MapEndpoint<CreateParkingPlaceEndpoint>()
             .MapEndpoint<DeleteParkingPlaceEndpoint>()
-            .MapEndpoint<GetParkingPlaceEndpoint>();
+            .MapEndpoint<GetParkingPlaceEndpoint>()
+            .MapEndpoint<GetListParkingPlaceEndpoint>();
 
         endpoint.MapGroup("v1/vehicle")
             .WithTags("Vehicles")
