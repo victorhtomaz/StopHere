@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
+using StopHere.Api.Common.Api.Interfaces;
 using StopHere.Api.Entities;
-using StopHere.Api.Interfaces;
 
 namespace StopHere.Api.Endpoints.IdentityEndpoints;
 

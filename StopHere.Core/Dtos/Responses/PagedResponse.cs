@@ -11,7 +11,8 @@ public class PagedResponse<TData> : Response<TData>
     }
     
     [JsonConstructor]
-    public PagedResponse(TData? data, int totalCount, int currentPage = 1, int pageSize = 25) : base(data)
+    public PagedResponse(TData? data, int totalCount, int currentPage = Configuration.DefaultPageNumber, 
+        int pageSize = Configuration.DefaultPageSize) : base(data)
     {
         Data = data;
         TotalCount = totalCount;

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StopHere.Api.Interfaces;
+using StopHere.Api.Common.Api.Interfaces;
+using StopHere.Core;
 using StopHere.Core.Dtos.Requests.ParkingPlaceRequests;
 using StopHere.Core.Dtos.Responses;
 using StopHere.Core.Entities;
@@ -15,13 +16,13 @@ public class GetListParkingPlaceEndpoint : IEndpoint
             .WithSummary("Lista uma lista de vagas")
             .Produces<PagedResponse<IList<ParkingPlace>>>();
 
-    public static async Task<IResult> HandleAsync([FromQuery] int pageNumber, [FromQuery] int pageSize,
+    public static async Task<IResult> HandleAsync([FromQuery] int? pageNumber, [FromQuery] int? pageSize,
         IParkingPlaceHandler handler)
     {
         var request = new GetListParkingPlaceRequest
         {
-            PageNumber = pageNumber,
-            PageSize = pageSize
+            PageNumber = pageNumber ?? Configuration.DefaultPageNumber,
+            PageSize = pageSize ?? Configuration.DefaultPageSize
         };
 
         var result = await handler.GetListAsync(request);

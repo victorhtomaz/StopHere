@@ -1,4 +1,4 @@
-﻿using StopHere.Api.Interfaces;
+﻿using StopHere.Api.Common.Api.Interfaces;
 using System.Security.Claims;
 
 namespace StopHere.Api.Endpoints.IdentityEndpoints;

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StopHere.Api.Interfaces;
+using StopHere.Api.Common.Api.Interfaces;
 using StopHere.Core.Dtos.Requests.VehicleRequests;
 using StopHere.Core.Dtos.Responses;
 using StopHere.Core.Entities;

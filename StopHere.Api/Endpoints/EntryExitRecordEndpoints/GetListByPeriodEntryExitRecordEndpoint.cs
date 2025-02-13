@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StopHere.Api.Interfaces;
+using StopHere.Api.Common.Api.Interfaces;
+using StopHere.Core;
 using StopHere.Core.Dtos.Requests.EntryExitRecordRequests;
 using StopHere.Core.Dtos.Responses;
 using StopHere.Core.Entities;
@@ -15,14 +16,14 @@ public class GetListByPeriodEntryExitRecordEndpoint : IEndpoint
             .WithSummary("Lista registros pelo período")
             .Produces<PagedResponse<IList<EntryExitRecord>>>();
 
-    public static async Task<IResult> HandleAsync([FromQuery] int pageNumber, [FromQuery] int pageSize,
+    public static async Task<IResult> HandleAsync([FromQuery] int? pageNumber, [FromQuery] int? pageSize,
         [FromQuery] DateTime? startDate, [FromQuery] DateTime? endDate,
         IEntryExitRecordHandler handler)
     {
         var request = new GetListEntryExitRecordRequest
         {
-            PageNumber = pageNumber,
-            PageSize = pageSize,
+            PageNumber = pageNumber ?? Configuration.DefaultPageNumber,
+            PageSize = pageSize ?? Configuration.DefaultPageSize,
             StartDate = startDate,
             EndDate = endDate
         };

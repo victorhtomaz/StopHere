@@ -1,4 +1,4 @@
-﻿namespace StopHere.Api.Interfaces;
+﻿namespace StopHere.Api.Common.Api.Interfaces;
 
 public interface IEndpoint
 {

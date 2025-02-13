@@ -1,9 +1,9 @@
-﻿using StopHere.Api.Endpoints.ClientEndpoints;
+﻿using StopHere.Api.Common.Api.Interfaces;
+using StopHere.Api.Endpoints.ClientEndpoints;
 using StopHere.Api.Endpoints.EntryExitRecordEndpoints;
 using StopHere.Api.Endpoints.IdentityEndpoints;
 using StopHere.Api.Endpoints.ParkingPlaceEndpoints;
 using StopHere.Api.Endpoints.VehicleEndpoints;
-using StopHere.Api.Interfaces;
 
 namespace StopHere.Api.Endpoints;
 

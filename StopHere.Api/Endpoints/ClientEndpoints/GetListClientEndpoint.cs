@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using StopHere.Api.Interfaces;
+using StopHere.Api.Common.Api.Interfaces;
+using StopHere.Core;
 using StopHere.Core.Dtos.Requests.ClientRequests;
 using StopHere.Core.Dtos.Responses;
 using StopHere.Core.Entities;
@@ -15,13 +16,13 @@ public class GetListClientEndpoint : IEndpoint
             .WithSummary("Lista uma lista de clientes")
             .Produces<PagedResponse<IList<Client>>>();
 
-    public static async Task<IResult> HandleAsync([FromQuery] int pageNumber, [FromQuery] int pageSize,
+    public static async Task<IResult> HandleAsync([FromQuery] int? pageNumber, [FromQuery] int? pageSize,
        IClientHandler handler)
     {
         var request = new GetListClientRequest
         {
-            PageNumber = pageNumber,
-            PageSize = pageSize
+            PageNumber = pageNumber ?? Configuration.DefaultPageNumber,
+            PageSize = pageSize ?? Configuration.DefaultPageSize
         };
 
         var result = await handler.GetListAsync(request);
