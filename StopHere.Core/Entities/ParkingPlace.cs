@@ -2,8 +2,10 @@
 
 public class ParkingPlace : BaseEntity
 {
-    public ParkingPlace()
+    protected ParkingPlace() { }    
+    public ParkingPlace(int number)
     {
+        Number = number;
         IsOccupied = false;
     }
     public int Number { get; set; }

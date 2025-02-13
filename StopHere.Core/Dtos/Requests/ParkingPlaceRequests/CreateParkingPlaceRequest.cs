@@ -2,5 +2,5 @@
 
 public class CreateParkingPlaceRequest : Request
 {
-
+    public int Number { get; set; }
 }

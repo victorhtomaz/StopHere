@@ -2,20 +2,25 @@
 
 public class EntryExitRecord : BaseEntity
 {
-    public EntryExitRecord(string licensePlateValue, Guid parkingSpaceId)
+    protected EntryExitRecord() { }
+    public EntryExitRecord(Vehicle vehicle, ParkingPlace parkingPlace)
     {
+        Vehicle = vehicle;
+        ParkingPlace = parkingPlace;
         EntryDate = DateTime.Now;
-        LicensePlateValue = licensePlateValue;
-        ParkingSpaceId = parkingSpaceId;
+        LicensePlateValue = vehicle.LicensePlate.Value;
+        ParkingPlaceId = parkingPlace.Id;
     }
 
     public DateTime EntryDate { get; set; }
     public DateTime? ExitDate { get; set; }
     public TimeSpan? Duration { get; set; }
     public string LicensePlateValue { get; set; }
-    public Guid ParkingSpaceId {  get; set; }
+    public Guid VehicleId { get; set; }
     public Vehicle Vehicle { get; set; } = null!;
-
+    public Guid ParkingPlaceId {  get; set; }
+    public ParkingPlace ParkingPlace { get; set; } = null!;
+    
     public void ChangeExitDate()
     {
         ExitDate = DateTime.Now;

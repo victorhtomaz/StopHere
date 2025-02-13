@@ -9,4 +9,5 @@ public interface IParkingPlaceHandler
     Task<Response<ParkingPlace?>> CreateAsync(CreateParkingPlaceRequest request);
     Task<Response<ParkingPlace?>> DeleteAsync(DeleteParkingPlaceRequest request);
     Task<Response<ParkingPlace?>> GetAsync(GetParkingPlaceRequest request);
+    Task<PagedResponse<IList<ParkingPlace>>> GetListAsync(GetListParkingPlaceRequest request);
 }

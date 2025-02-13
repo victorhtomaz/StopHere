@@ -7,7 +7,7 @@ public class CreateClientRequest : Request
 {
     [Required]
     [StringLength(125, MinimumLength = 2, ErrorMessage = "É necessário 2 à 125 caracteres")]
-    public string Nome { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
 
     [Required]
     [MaxLength(30, ErrorMessage = "Máximo de 30 caracteres")]
@@ -18,7 +18,7 @@ public class CreateClientRequest : Request
     public EServiceTypes ServiceType { get; set; }
 
     [Required]
-    [StringLength(7, MinimumLength = 7, ErrorMessage = "É necessário 7 caracteres"]
+    [StringLength(7, MinimumLength = 7, ErrorMessage = "É necessário 7 caracteres")]
     public string LicensePlateValue { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "O número da vaga é necessário")]

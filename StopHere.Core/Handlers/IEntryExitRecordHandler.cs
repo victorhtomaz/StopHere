@@ -9,6 +9,6 @@ public interface IEntryExitRecordHandler
     Task<Response<EntryExitRecord?>> CreateAsync(CreateEntryExitRecordRequest request);
     Task<Response<EntryExitRecord?>> ChangeExitAsync(ChangeExitEntryExitRecordRequest request);
     Task<Response<EntryExitRecord?>> GetAsync(GetEntryExitRecordRequest request);
-    Task<PagedResponse<IList<EntryExitRecord?>>> GetListByPeriodAsync(GetListEntryExitRecordRequest request);
+    Task<PagedResponse<IList<EntryExitRecord>>> GetListByPeriodAsync(GetListEntryExitRecordRequest request);
     Task<Response<EntryExitRecord?>> DeleteListAsync(DeleteEntryExitRecordsRequest request);
 }

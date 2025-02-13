@@ -5,6 +5,8 @@ namespace StopHere.Core.Dtos.Requests.ClientRequests;
 
 public class RenewServiceClientRequest : Request
 {
+    public Guid ClientId { get; set; }
+
     [Required]
     [Range(1, 2, ErrorMessage = "O valor precisa ser entre 1 e 2")]
     public EServiceTypes ServiceType { get; set; }

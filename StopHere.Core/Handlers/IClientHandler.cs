@@ -10,6 +10,6 @@ public interface IClientHandler
     Task<Response<Client?>> ChangeAsync(ChangeClientRequest request);
     Task<Response<Client?>> DeleteListAsync(DeleteClientsRequest request);
     Task<Response<Client?>> GetByPhoneNumberAsync(GetClientByPhoneNumberRequest request);
-    Task<PagedResponse<IList<Client?>>> GetListAsync(GetListClientRequest request);
+    Task<PagedResponse<IList<Client>>> GetListAsync(GetListClientRequest request);
     Task<Response<Client?>> RenewServiceAsync(RenewServiceClientRequest request);
 }
